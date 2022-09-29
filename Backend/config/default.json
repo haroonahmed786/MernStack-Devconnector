@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://haroonahmed:pakistan123@cluster0.prwdphl.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "mySecret"
+}
