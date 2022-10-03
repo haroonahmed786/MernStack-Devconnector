@@ -17,7 +17,6 @@ import { Link } from 'react-router-dom';
     e.preventDefault();
    
        console.log('SUCCESS');
-  
   };
 
   return(
