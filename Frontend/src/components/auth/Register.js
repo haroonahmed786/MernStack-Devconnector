@@ -41,7 +41,7 @@ import PropTypes from 'prop-types';
        name="name" 
        value = {name} 
        onChange= {e => onChange(e)}
-       required 
+     
        />
     </div>
     <div className="form-group">
@@ -51,7 +51,7 @@ import PropTypes from 'prop-types';
        name="email"  
           value = {email} 
        onChange= {e => onChange(e)}
-       required 
+   
         />
       <small className="form-text"
         >This site uses Gravatar so if you want a profile image, use a
@@ -65,7 +65,7 @@ import PropTypes from 'prop-types';
         name="password"
         value = {password} 
         onChange= {e => onChange(e)}
-        minLength="6"
+       
       />
     </div>
     <div className="form-group">
@@ -75,7 +75,7 @@ import PropTypes from 'prop-types';
         name="password2"
         value = {password2} 
         onChange= {e => onChange(e)}
-        minLength="6"
+       
       />
     </div>
     <input type="submit" className="btn btn-primary" value="Register" />
