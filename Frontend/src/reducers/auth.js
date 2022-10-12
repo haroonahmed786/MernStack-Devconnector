@@ -38,7 +38,7 @@ export default function(state = initialState,action){
             return{
                 ...state,
                 token:null,
-                isAuthenticated:false,
+                isAuthenticated:true,
                 loading:false
             }
             default:
