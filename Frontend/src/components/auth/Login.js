@@ -62,7 +62,7 @@ Don't have an account? <Link to="/register">Sign Up</Link>
   </Fragment>
   );
 };
- Login.PropTypes = {
+ login.PropTypes = {
     login:PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool
  };
