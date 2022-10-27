@@ -22,4 +22,4 @@ export const getCurrentProfile = () => async dispatch => {
         payload: {msg: err.response.statusText, status: err. response.status }
     });
   }
-  };  
+  };
