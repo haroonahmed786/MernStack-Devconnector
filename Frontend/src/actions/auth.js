@@ -9,8 +9,11 @@ import{
   LOGIN_FAIL,
   LOGOUT
 }from './types';
+
 import setAuthToken from '../utlis/setAuthToken';
+
 //Load User
+
 export const loadUser = () =>async dispatch => {
  if(localStorage.token){
   setAuthToken(localStorage.token);
