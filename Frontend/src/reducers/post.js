@@ -3,7 +3,7 @@ import{
     POST_ERROR
 } from '../actions/types';
 
-const initialState ={
+const initialState = {
     posts: [],
     post: null,
     loading:true,
