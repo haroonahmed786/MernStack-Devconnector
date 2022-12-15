@@ -2,46 +2,52 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
+import { addLike, removeLike, deletePost } from '../../actions/post';
 
-const PostItem = ({ auth, post: {_Id, text, name, avatar, user, likes, comments, date}
+const PostItem = ({ addLike, removeLike, deletePost, auth, post: {_id, text, name, avatar, user, likes, comments, date}
 }) => 
     <div class="post bg-white p-1 my-1">
     <div>
       <a href="profile.html">
         <img
           class="round-img"
-          src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
+          src={avatar}
           alt=""
         />
-        <h4>John Doe</h4>
+        <h4>{name}</h4>
       </a>
     </div>
     <div>
       <p class="my-1">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-        possimus corporis sunt necessitatibus! Minus nesciunt soluta
-        suscipit nobis. Amet accusamus distinctio cupiditate blanditiis
-        dolor? Illo perferendis eveniet cum cupiditate aliquam?
+       {text}
       </p>
        <p class="post-date">
-          Posted on 04/16/2019
+         Posted on <Moment formate= 'YYYY/MM/DD'>{date}</Moment>
       </p>
-      <button type="button" class="btn btn-light">
-        <i class="fas fa-thumbs-up"></i>
-        <span>4</span>
+      <button onClick= {e => addLike(_id)} type="button" class="btn btn-light">
+        <i class="fas fa-thumbs-up" />{' '}
+        <span> {likes.length > 0 && ( 
+        <span>{likes.length}</span>
+        )}
+        </span>
       </button>
-      <button type="button" class="btn btn-light">
-        <i class="fas fa-thumbs-down"></i>
+      <button onClick= {e => removeLike(_id)} type="button" class="btn btn-light">
+        <i class="fas fa-thumbs-down" />
       </button>
-      <a href="post.html" class="btn btn-primary">
-        Discussion <span class='comment-count'>2</span>
-      </a>
-      <button      
+      <Link to={`/post/${_id}`} class="btn btn-primary">
+        Discussion {comments.length > 0 && ( 
+        <span class='comment-count'>{comments.length}</span>
+        )}
+      </Link>
+      {!auth.loading && user === auth.user._id &&(
+      <button   
+      onClick={e => deletePost(_id)}   
       type="button"
       class="btn btn-danger"
     >
-      <i class="fas fa-times"></i>
+      <i class="fas fa-times" />
     </button>
+      )}
     </div>
   </div>
 const mapStateToProps = state => ({
@@ -49,4 +55,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, {}) (PostItem);
+export default connect(mapStateToProps, { addLike, removeLike, deletePost }) (PostItem);
